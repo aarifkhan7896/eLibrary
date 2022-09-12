@@ -1,1 +1,66 @@
-﻿
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    footer p {
+        background-color: lightgray;
+        color: black;
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 5rem;
+        padding: 2rem 0;
+    }
+
+.container .inner .card {
+    box-shadow: 7px 7px 8px rgba(0,0,0,0.2);
+}
+
+    .container .inner .card .label {
+        font-size: 1.5rem;
+    }
+
+    .container .inner .card input[type="text"], input[type="password"] {
+        font-size: 1.5rem;
+        padding: .5rem 1rem;
+    }
+
+    .container .inner .card .card-title::after {
+        content: "";
+        display: block;
+        width: 3.5rem;
+        margin: 1rem auto;
+        border-bottom: 4px solid #f9dd94;
+    }
+
+@media only screen and (max-width:700px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    html {
+        font-size: 30%;
+    }
+}
