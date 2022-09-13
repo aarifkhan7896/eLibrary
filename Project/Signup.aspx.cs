@@ -21,6 +21,47 @@ namespace Project
 
         protected void signUpBtn_Click(object sender, EventArgs e)
         {
+            if (checkUserExists())
+            {
+                Response.Write("<script>alert('User already exist.')</script>");
+            }
+            else
+            {
+                signUpMember();
+            }
+        }
+
+        bool checkUserExists()
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("select * from members where email = '"+email.Text.Trim()+"'", sqlCon);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                if(dataTable.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.Write(ex.Message);
+                return false;
+            }
+        }
+
+        void signUpMember()
+        {
             try
             {
                 SqlConnection sqlCon = new SqlConnection(dbconn);
@@ -41,11 +82,11 @@ namespace Project
                 cmd.Parameters.AddWithValue("@status", "Pending");
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();
-                Response.Write("<script></script>");
+                Response.Write("<script>alert('Signup Successfull')</script>");
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                Response.Write("<script>Console.log('"+ ex.Message + "')</script>");
             }
         }
     }
