@@ -35,7 +35,7 @@ namespace Project
                     {
                         Response.Write("<script>alert('" + reader.GetValue(1) + "')</script>");
                     }
-                    Response.Redirect("~/Dashboard.aspx");
+                    Response.Redirect("~/UserProfile.aspx");
                 }
                 else
                 {
@@ -44,7 +44,7 @@ namespace Project
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                Response.Write("<script>Console.log('" + ex.Message + "')</script>");
             }
         }
     }

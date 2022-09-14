@@ -35,7 +35,7 @@ namespace Project
                     {
                         Response.Write("<script>alert('"+reader.GetValue(3)+"')</script>");
                     }
-                    Response.Redirect("~/Dashboard.aspx");
+                    Response.Redirect("~/UserProfile.aspx");
                 }
                 else
                 {
