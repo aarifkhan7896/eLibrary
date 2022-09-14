@@ -20,7 +20,32 @@ namespace Project
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("select * from adminlogin where email = '"+email.Text.Trim()+"' and password = '"+password.Text.Trim()+"'",sqlCon);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Response.Write("<script>alert('" + reader.GetValue(1) + "')</script>");
+                    }
+                    Response.Redirect("~/Dashboard.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Credentials')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }
