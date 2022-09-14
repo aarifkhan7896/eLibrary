@@ -31,6 +31,12 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" aria-current="page" href="#">Contact</a>
                             </li>
+                             <li class="nav-item">
+                                 <asp:LinkButton CssClass="nav-link text-light" ID="WelcomeUser" ClientIDMode="Static" runat="server">Hi</asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                 <asp:LinkButton CssClass="nav-link text-light" ID="LogoutBtn" ClientIDMode="Static" runat="server" OnClick="LogoutBtn_Click">Logout</asp:LinkButton>
+                            </li>
                         </ul>
                     </div>
                 </div>
