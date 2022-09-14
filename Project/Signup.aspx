@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="mt-4">
-                <p class="fs-3 fw-bold">Already have an account? <a href="Login.aspx">Login</a></p>
+                <p class="fs-4 text-muted">Already have an account? <a href="Login.aspx">Login</a></p>
             </div>
         </div>
     </div>

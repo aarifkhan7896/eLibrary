@@ -1,15 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Project.Login" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminLogin.aspx.cs" Inherits="Project.AdminLogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+     <div class="container">
         <div class="inner mt-3 d-flex justify-content-center align-items-center flex-column">
             <div class="card" style="width: 35rem;">
                 <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="img">
                 <div class="card-body">
                     <div class="mb-4 text-center">
-                        <h5 class="card-title fs-1 fw-bold">User Login</h5>
+                        <h5 class="card-title fs-1 fw-bold">Admin Login</h5>
                     </div>
                     <div class="form-group mb-4">
                         <asp:Label ID="Label1" runat="server" Text="Email" CssClass="label"></asp:Label>
@@ -24,13 +23,10 @@
                     <div class="text-center mb-4">
                         <asp:Button ID="LoginBtn" ClientIDMode="Static" runat="server" Text="Log in" CssClass="btn btn-success w-100 fs-4 py-2 px-5" OnClientClick="return loginForm()" OnClick="LoginBtn_Click" />
                     </div>
-                    <div class="text-center">
-                        <p class="fs-4 text-muted">Don't have an account? <a href="Signup.aspx">Sign Up</a></p>
-                    </div>
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="AdminLogin.aspx" class="btn btn-outline-success py-2 px-5 fs-4">Admin Login</a>
+                <a href="Login.aspx" class="btn btn-outline-success py-2 px-5 fs-4">User Login</a>
             </div>
         </div>
     </div>
