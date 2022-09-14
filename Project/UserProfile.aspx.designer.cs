@@ -186,6 +186,15 @@ namespace Project
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
+        /// address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox address;
+
+        /// <summary>
         /// addressError control.
         /// </summary>
         /// <remarks>
@@ -195,12 +204,12 @@ namespace Project
         protected global::System.Web.UI.WebControls.Label addressError;
 
         /// <summary>
-        /// signUpBtn control.
+        /// updateUserProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button signUpBtn;
+        protected global::System.Web.UI.WebControls.Button updateUserProfile;
     }
 }

@@ -111,3 +111,34 @@ function signUpForm() {
         document.querySelector("#contactError").innerHTML = "";
     }
 }
+
+function updateUserProfileForm() {
+    const pincode = document.querySelector("#pincode").value;
+    const address = document.querySelector("#address").value;
+    const pass = document.querySelector("#password").value;
+
+    if (address == "" || address == null) {
+        document.querySelector("#addressError").innerHTML = "Please enter your address";
+        return false;
+    }
+    if (pass == '' || pass == null) {
+        document.querySelector("#passError").innerHTML = "Please enter your password";
+        return false;
+    }
+    if (pass.length < 8) {
+        document.querySelector("#passError").innerHTML = "Password length should be 8 characters.";
+        return false;
+    }
+    if (pincode == '' || pincode == null) {
+        document.querySelector("#pincodeError").innerHTML = "Please enter your pincode";
+        return false;
+    }
+    if (pincode.length < 6) {
+        document.querySelector("#pincodeError").innerHTML = "Pincode length should be of 6 ";
+        return false;
+    }
+    if (isNaN(pincode)) {
+        document.querySelector("#pincodeError").innerHTML = "Enter Numbers Only";
+        return false;
+    }
+}
