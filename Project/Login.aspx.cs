@@ -34,6 +34,9 @@ namespace Project
                     while (reader.Read())
                     {
                         Response.Write("<script>alert('"+reader.GetValue(3)+"')</script>");
+                        Session["email"] = reader.GetValue(3);
+                        Session["name"] = reader.GetValue(1);
+                        Session["role"] = "user";
                     }
                     Response.Redirect("~/UserProfile.aspx");
                 }
