@@ -28,7 +28,7 @@ namespace Project
                 {
                     sqlCon.Open();
                 }
-                SqlCommand cmd = new SqlCommand("", sqlCon);
+                SqlCommand cmd = new SqlCommand("select * from author where author_id = '"+author.Text.Trim()+"';", sqlCon);
             }
             catch (Exception ex)
             {
@@ -50,7 +50,14 @@ namespace Project
 
         protected void update_Click(object sender, EventArgs e)
         {
-
+            if (checkIfAuthorExists())
+            {
+                updateAuthor();
+            }
+            else
+            {
+                Response.Write("<script>alert('Author Does Not Exists')</script>");
+            }
         }
 
         protected void delete_Click(object sender, EventArgs e)
@@ -67,7 +74,7 @@ namespace Project
                 {
                     sqlCon.Open();
                 }
-                SqlCommand cmd = new SqlCommand("SELECT * from author where author_name = '" + authorname.Text.Trim() + "'", sqlCon);
+                SqlCommand cmd = new SqlCommand("SELECT * from author where author_id='"+author.Text.Trim()+"'", sqlCon);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -95,13 +102,14 @@ namespace Project
                 {
                     sqlCon.Open();
                 }
-                if (authorname.Text == null || authorname.Text == "")
+                if (authorname.Text == null || authorname.Text == "" || author.Text == null || author.Text == "")
                 {
-                    Response.Write("<script>alert('Author Name is Required')</script>");
+                    Response.Write("<script>alert('Author Details are Required')</script>");
                 }
                 else
                 {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO author(author_name) values(@author_name)", sqlCon);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO author(author_id,author_name) values(@author_id,@author_name)", sqlCon);
+                    cmd.Parameters.AddWithValue("@author_id", author.Text.Trim());
                     cmd.Parameters.AddWithValue("@author_name", authorname.Text.Trim());
                     cmd.ExecuteNonQuery();
                     sqlCon.Close();
@@ -113,6 +121,28 @@ namespace Project
             catch (Exception ex)
             {
                 Response.Write("<script>console.log('" + ex.Message + "')</script>");
+            }
+        }
+
+        void updateAuthor()
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("UPDATE author set author_name=@author_name where author_id='"+author.Text.Trim()+"'; ", sqlCon);
+                cmd.Parameters.AddWithValue("@author_name", authorname.Text.Trim());
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                Response.Write("<script>alert('Author Updated')</script>");
+                authorname.Text = "";
+            }
+            catch(Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
     }
