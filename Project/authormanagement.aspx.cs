@@ -62,7 +62,14 @@ namespace Project
 
         protected void delete_Click(object sender, EventArgs e)
         {
-
+            if (checkIfAuthorExists())
+            {
+                deleteAuthor();
+            }
+            else
+            {
+                Response.Write("<script>alert('Author Does Not Exists')</script>");
+            }
         }
 
         bool checkIfAuthorExists()
@@ -141,6 +148,26 @@ namespace Project
                 authorname.Text = "";
             }
             catch(Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+
+        void deleteAuthor()
+        {
+            try
+            {
+               SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand(" DELETE from author where author_id = '"+author.Text.Trim()+"';", sqlCon);
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                Response.Write("<script>alert('Author Deleted')</script>");
+            }
+            catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
