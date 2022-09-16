@@ -20,7 +20,7 @@
                                 <asp:TextBox ID="publishername" ClientIDMode="Static" runat="server" CssClass="form-control fs-4" placeholder="Enter Publisher Name"></asp:TextBox>
                             </div>
                             <div class="d-flex justify-content-evenly">
-                                <asp:Button ID="insert" runat="server" CssClass="btn btn-primary fs-4 py-2 px-5" Text="Add" />
+                                <asp:Button ID="insert" runat="server" CssClass="btn btn-primary fs-4 py-2 px-5" Text="Add" OnClick="insert_Click" />
                                 <asp:Button ID="update" runat="server" CssClass="btn btn-outline-success fs-4 py-2 px-5" Text="Update"  />
                                 <asp:Button ID="delete" runat="server" CssClass="btn btn-outline-danger fs-4 py-2 px-5" Text="Delete"  />
                             </div>
