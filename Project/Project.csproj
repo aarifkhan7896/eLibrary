@@ -244,6 +244,7 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="publishermanagement.aspx" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -349,6 +350,13 @@
     </Compile>
     <Compile Include="authormanagement.aspx.designer.cs">
       <DependentUpon>authormanagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="publishermanagement.aspx.cs">
+      <DependentUpon>publishermanagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="publishermanagement.aspx.designer.cs">
+      <DependentUpon>publishermanagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
