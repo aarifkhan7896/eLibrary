@@ -29,6 +29,17 @@ namespace Project
                     sqlCon.Open();
                 }
                 SqlCommand cmd = new SqlCommand("select * from author where author_id = '"+author.Text.Trim()+"';", sqlCon);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                if(dt.Rows.Count >= 1)
+                {
+                    authorname.Text = dt.Rows[0][1].ToString();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Author does not exists')</script>");
+                }
             }
             catch (Exception ex)
             {
