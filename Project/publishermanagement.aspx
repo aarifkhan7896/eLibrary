@@ -22,7 +22,7 @@
                             <div class="d-flex justify-content-evenly">
                                 <asp:Button ID="insert" runat="server" CssClass="btn btn-primary fs-4 py-2 px-5" Text="Add" OnClick="insert_Click" />
                                 <asp:Button ID="update" runat="server" CssClass="btn btn-outline-success fs-4 py-2 px-5" Text="Update" OnClick="update_Click"  />
-                                <asp:Button ID="delete" runat="server" CssClass="btn btn-outline-danger fs-4 py-2 px-5" Text="Delete"  />
+                                <asp:Button ID="delete" runat="server" CssClass="btn btn-outline-danger fs-4 py-2 px-5" Text="Delete" OnClick="delete_Click"  />
                             </div>
                         </div>
 

@@ -23,7 +23,8 @@ namespace Project
             if (checkIfPublisherExists())
             {
                 Response.Write("<script>alert('Publisher already exists')</script>");
-            }else
+            }
+            else
             {
                 addNewPublisher();
             }
@@ -98,18 +99,18 @@ namespace Project
             try
             {
                 SqlConnection sqlCon = new SqlConnection(dbconn);
-                if(sqlCon.State == ConnectionState.Closed)
+                if (sqlCon.State == ConnectionState.Closed)
                 {
                     sqlCon.Open();
                 }
-                SqlCommand cmd = new SqlCommand("UPDATE publisher set publisher_name = @name where publisher_id='"+publisher.Text.Trim()+"'",sqlCon);
-                cmd.Parameters.AddWithValue("@name",publishername.Text.Trim());
+                SqlCommand cmd = new SqlCommand("UPDATE publisher set publisher_name = @name where publisher_id='" + publisher.Text.Trim() + "'", sqlCon);
+                cmd.Parameters.AddWithValue("@name", publishername.Text.Trim());
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();
                 Response.Write("<script>alert('Publisher Updated')</script>");
                 clearFields();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Write("<script>console.log('" + ex.Message + "')</script>");
             }
@@ -119,6 +120,39 @@ namespace Project
         {
             publisher.Text = "";
             publishername.Text = "";
+        }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            if (checkIfPublisherExists())
+            {
+                deletePublisher();
+            }
+            else
+            {
+                Response.Write("<script>alert('Publisher does not exists')</script>");
+            }
+        }
+
+        void deletePublisher()
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("DELETE from publisher where publisher_id='" + publisher.Text.Trim() + "'", sqlCon);
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                Response.Write("<script>alert('Publisher Deleted')</script>");
+                clearFields();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>console.log('" + ex.Message + "')</script>");
+            }
         }
     }
 }
