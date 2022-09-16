@@ -15,7 +15,7 @@ namespace Project
         string dbconn = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();
         }
 
         protected void insert_Click(object sender, EventArgs e)
@@ -75,6 +75,7 @@ namespace Project
                 sqlCon.Close();
                 Response.Write("<script>alert('Publisher Added')</script>");
                 clearFields();
+                GridView1.DataBind();
             }
             catch (Exception ex)
             {
@@ -109,6 +110,7 @@ namespace Project
                 sqlCon.Close();
                 Response.Write("<script>alert('Publisher Updated')</script>");
                 clearFields();
+                GridView1.DataBind();
             }
             catch (Exception ex)
             {
@@ -148,6 +150,7 @@ namespace Project
                 sqlCon.Close();
                 Response.Write("<script>alert('Publisher Deleted')</script>");
                 clearFields();
+                GridView1.DataBind();
             }
             catch (Exception ex)
             {

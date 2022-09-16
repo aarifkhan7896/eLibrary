@@ -1,5 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="publishermanagement.aspx.cs" Inherits="Project.publishermanagement" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+    </script>
+    <style>
+        th {
+            font-size: 1.5rem;
+        }
+
+        td {
+            font-size: 1.3rem;
+        }
+
+        input[type="search"] {
+            padding: 0 .5rem;
+        }
+
+            input[type="search"]:focus {
+                outline: none;
+            }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -21,8 +44,8 @@
                             </div>
                             <div class="d-flex justify-content-evenly">
                                 <asp:Button ID="insert" runat="server" CssClass="btn btn-primary fs-4 py-2 px-5" Text="Add" OnClick="insert_Click" />
-                                <asp:Button ID="update" runat="server" CssClass="btn btn-outline-success fs-4 py-2 px-5" Text="Update" OnClick="update_Click"  />
-                                <asp:Button ID="delete" runat="server" CssClass="btn btn-outline-danger fs-4 py-2 px-5" Text="Delete" OnClick="delete_Click"  />
+                                <asp:Button ID="update" runat="server" CssClass="btn btn-outline-success fs-4 py-2 px-5" Text="Update" OnClick="update_Click" />
+                                <asp:Button ID="delete" runat="server" CssClass="btn btn-outline-danger fs-4 py-2 px-5" Text="Delete" OnClick="delete_Click" />
                             </div>
                         </div>
 
@@ -31,10 +54,16 @@
             </div>
             <div class="col-md-6">
                 <div class="grid-view mt-5">
-                <h5 class="card-title fs-1 text-muted fw-bold text-center">Publisher List</h5>
+                    <h5 class="card-title fs-1 text-muted fw-bold text-center">Publisher List</h5>
                     <hr />
                     <div class="mb-5"></div>
-                    <asp:GridView ID="GridView1" CssClass="table table-striped cell-border" runat="server"></asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectConnectionString %>" SelectCommand="SELECT * FROM [publisher]"></asp:SqlDataSource>
+                    <asp:GridView ID="GridView1" CssClass="table table-striped cell-border" runat="server" AutoGenerateColumns="False" DataKeyNames="publisher_id" DataSourceID="SqlDataSource1">
+                        <Columns>
+                            <asp:BoundField DataField="publisher_id" HeaderText="Publisher Id" ReadOnly="True" SortExpression="publisher_id" />
+                            <asp:BoundField DataField="publisher_name" HeaderText="Publisher Name" SortExpression="publisher_name" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>
