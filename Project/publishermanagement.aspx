@@ -36,7 +36,7 @@
                             <asp:Label ID="Label1" runat="server" Text="Publisher ID" CssClass="label fs-4"></asp:Label>
                             <div class="input-group mb-4">
                                 <asp:TextBox ID="publisher" ClientIDMode="Static" runat="server" CssClass="form-control fs-4" placeholder="Enter Publisher ID"></asp:TextBox>
-                                <asp:Button ID="search" runat="server" Text="Go" CssClass="btn btn-outline-dark fs-4 py-1 px-5" />
+                                <asp:Button ID="search" runat="server" Text="Go" CssClass="btn btn-outline-dark fs-4 py-1 px-5" OnClick="search_Click" />
                             </div>
                             <div class="mb-4">
                                 <asp:Label ID="Label2" runat="server" Text="Publisher Name" CssClass="label fs-4"></asp:Label>

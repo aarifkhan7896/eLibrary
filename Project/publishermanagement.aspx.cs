@@ -157,5 +157,38 @@ namespace Project
                 Response.Write("<script>console.log('" + ex.Message + "')</script>");
             }
         }
+
+        protected void search_Click(object sender, EventArgs e)
+        {
+            getPublisherById();
+        }
+
+        void getPublisherById()
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT * from publisher where publisher_id='"+publisher.Text.Trim()+"'", sqlCon);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                if(dt.Rows.Count >= 1)
+                {
+                    publishername.Text = dt.Rows[0][1].ToString();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Publisher does not exists')</script>");
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.Write("<script>console.log('" + ex.Message + "')</script>");
+            }
+        }
     }
 }
