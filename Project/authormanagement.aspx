@@ -34,6 +34,9 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title">Author List</p>
+                        <div class="grid-view">
+                            <asp:GridView ID="GridView" runat="server" CssClass="table table-hover table-striped "></asp:GridView>
+                        </div>
                     </div>
                 </div>
             </div>
