@@ -16,7 +16,7 @@ namespace Project
         string dbconn = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView.DataBind();
         }
 
         protected void search_Click(object sender, EventArgs e)
@@ -121,7 +121,8 @@ namespace Project
                     cmd.ExecuteNonQuery();
                     sqlCon.Close();
                     Response.Write("<script>alert('Author Added')</script>");
-                    authorname.Text = "";
+                    clearFields();
+                    GridView.DataBind();
                 }
 
             }
@@ -145,7 +146,8 @@ namespace Project
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();
                 Response.Write("<script>alert('Author Updated')</script>");
-                authorname.Text = "";
+                clearFields();
+                GridView.DataBind();
             }
             catch(Exception ex)
             {
@@ -166,11 +168,19 @@ namespace Project
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();
                 Response.Write("<script>alert('Author Deleted')</script>");
+                clearFields();
+                GridView.DataBind();
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
+        }
+
+        void clearFields()
+        {
+            author.Text = "";
+            authorname.Text = "";
         }
     }
 }

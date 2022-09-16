@@ -31,13 +31,17 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-title">Author List</p>
-                        <div class="grid-view">
-                            <asp:GridView ID="GridView" runat="server" CssClass="table table-hover table-striped "></asp:GridView>
-                        </div>
-                    </div>
+                <div class="grid-view mt-5">
+                <h5 class="card-title fs-1 text-muted fw-bold text-center">Author List</h5>
+                    <hr />
+                    <div class="mb-5"></div>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectConnectionString %>" SelectCommand="SELECT * FROM [author]"></asp:SqlDataSource>
+                    <asp:GridView ID="GridView" runat="server" CssClass="table table-hover table-striped " AutoGenerateColumns="False" DataKeyNames="author_id" DataSourceID="SqlDataSource1">
+                        <Columns>
+                            <asp:BoundField DataField="author_id" HeaderText="author_id" ReadOnly="True" SortExpression="author_id" />
+                            <asp:BoundField DataField="author_name" HeaderText="author_name" SortExpression="author_name" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>
