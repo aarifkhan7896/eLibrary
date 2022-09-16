@@ -1,6 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="authormanagement.aspx.cs" Inherits="Project.authormanagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+      });
+    </script>
+    <style>
+        th{
+            font-size:1.5rem;
+        }
+        td{
+            font-size:1.3rem;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -36,10 +49,10 @@
                     <hr />
                     <div class="mb-5"></div>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectConnectionString %>" SelectCommand="SELECT * FROM [author]"></asp:SqlDataSource>
-                    <asp:GridView ID="GridView" runat="server" CssClass="table table-hover table-striped " AutoGenerateColumns="False" DataKeyNames="author_id" DataSourceID="SqlDataSource1">
+                    <asp:GridView ID="GridView" runat="server" CssClass="table table-hover table-striped" AutoGenerateColumns="False" DataKeyNames="author_id" DataSourceID="SqlDataSource1">
                         <Columns>
-                            <asp:BoundField DataField="author_id" HeaderText="author_id" ReadOnly="True" SortExpression="author_id" />
-                            <asp:BoundField DataField="author_name" HeaderText="author_name" SortExpression="author_name" />
+                            <asp:BoundField DataField="author_id" HeaderText="Author Id" ReadOnly="True" SortExpression="author_id" />
+                            <asp:BoundField DataField="author_name" HeaderText="Author Name" SortExpression="author_name" />
                         </Columns>
                     </asp:GridView>
                 </div>
