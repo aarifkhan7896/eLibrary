@@ -73,11 +73,52 @@ namespace Project
                 cmd.ExecuteNonQuery();
                 sqlCon.Close();
                 Response.Write("<script>alert('Publisher Added')</script>");
+                clearFields();
             }
             catch (Exception ex)
             {
                 Response.Write("<script>console.log('" + ex.Message + "')</script>");
             }
+        }
+
+        protected void update_Click(object sender, EventArgs e)
+        {
+            if (checkIfPublisherExists())
+            {
+                updatePublisher();
+            }
+            else
+            {
+                Response.Write("<script>alert('Publisher does not exists')</script>");
+            }
+        }
+
+        void updatePublisher()
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if(sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("UPDATE publisher set publisher_name = @name where publisher_id='"+publisher.Text.Trim()+"'",sqlCon);
+                cmd.Parameters.AddWithValue("@name",publishername.Text.Trim());
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                Response.Write("<script>alert('Publisher Updated')</script>");
+                clearFields();
+            }
+            catch(Exception ex)
+            {
+                Response.Write("<script>console.log('" + ex.Message + "')</script>");
+            }
+        }
+
+        void clearFields()
+        {
+            publisher.Text = "";
+            publishername.Text = "";
         }
     }
 }
