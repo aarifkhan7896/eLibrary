@@ -50,29 +50,29 @@
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <asp:Label ID="Label1" runat="server" Text="First Name" CssClass="label" ></asp:Label>
-                            <asp:TextBox ID="fname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter First Name" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="fname" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label3" runat="server" Text="Email" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="email" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Email" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="email" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label5" runat="server" Text="Contact" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="contact" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Contact Number" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="contact" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <asp:Label ID="Label2" runat="server" Text="Last Name" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="lname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Last Name" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="lname" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label6" runat="server" Text="Address" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="address" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Address" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="address" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label7" runat="server" Text="Pincode" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="pincode" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Pincode" ReadOnly="true" disabled="disabled"></asp:TextBox>
+                            <asp:TextBox ID="pincode" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                     </div>
                     <div class="text-center mb-4">
