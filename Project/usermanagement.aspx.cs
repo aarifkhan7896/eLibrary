@@ -16,6 +16,9 @@ namespace Project
         protected void Page_Load(object sender, EventArgs e)
         {
             GridView1.DataBind();
+            approve.Visible = false;
+            reject.Visible = false;
+            pending.Visible = false;
         }
 
         protected void Search_Click(object sender, EventArgs e)
@@ -39,6 +42,9 @@ namespace Project
                     contact.Text = dataTable.Rows[0][4].ToString();
                     address.Text = dataTable.Rows[0][5].ToString();
                     pincode.Text = dataTable.Rows[0][6].ToString();
+                    approve.Visible = true;
+                    reject.Visible = true;
+                    pending.Visible = true;
                 }
                 else
                 {
