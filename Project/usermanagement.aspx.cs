@@ -39,7 +39,6 @@ namespace Project
                     contact.Text = dataTable.Rows[0][4].ToString();
                     address.Text = dataTable.Rows[0][5].ToString();
                     pincode.Text = dataTable.Rows[0][6].ToString();
-                    status.Text = dataTable.Rows[0][8].ToString();
                 }
                 else
                 {
@@ -125,6 +124,67 @@ namespace Project
             address.Text = "";
             contact.Text = "";
             pincode.Text = "";
+        }
+
+        protected void approve_Click(object sender, EventArgs e)
+        {
+            if (checkIfUserExists())
+            {
+                statusUpdate("Approved");
+                Response.Write("<script>alert('Approved')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('User does not exists')</script>");
+            }
+        }
+
+        void statusUpdate(string status)
+        {
+            try
+            {
+                SqlConnection sqlCon = new SqlConnection(dbconn);
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                SqlCommand cmd = new SqlCommand("UPDATE members set status=@status where user_id='" + searchBox.Text.Trim() + "'", sqlCon);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.ExecuteNonQuery();
+                sqlCon.Close();
+                clearFields();
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>console.log('" + ex.Message + "')</script>");
+            }
+        }
+
+        protected void reject_Click(object sender, EventArgs e)
+        {
+            if (checkIfUserExists())
+            {
+                statusUpdate("Rejected");
+                Response.Write("<script>alert('Rejected')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('User does not exists')</script>");
+            }
+        }
+
+        protected void pending_Click(object sender, EventArgs e)
+        {
+            if (checkIfUserExists())
+            {
+                statusUpdate("Pending");
+                Response.Write("<script>alert('Pending')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('User does not exists')</script>");
+            }
         }
     }
 }

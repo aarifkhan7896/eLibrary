@@ -40,16 +40,20 @@
             <div class="col-md-6 mt-5 p-5">
                 <h4 class="text-muted fs-1 fw-bold text-center mb-5">User Details</h4>
                 <div class="input-group mb-3">
-                    <asp:TextBox ID="searchBox" runat="server" placeholder="Enter User ID" CssClass="form-control" ></asp:TextBox>
+                    <asp:TextBox ID="searchBox" runat="server" placeholder="Enter User ID" CssClass="form-control"></asp:TextBox>
                     <asp:Button ID="Search" runat="server" CssClass="btn btn-primary px-5 py-1 fs-3" Text="Go" OnClick="Search_Click" />
                 </div>
                 <div class="mb-5 text-center">
-                    <asp:Label ID="status" runat="server" Text="" CssClass="fs-4 fw-bold badge rounded-pill text-bg-warning"></asp:Label>
+                    <div class="d-flex justify-content-evenly mt-3">
+                        <asp:Button ID="approve" runat="server" Text="Approve" OnClick="approve_Click" CssClass="btn btn-success px-5 py-1 fs-4" />
+                        <asp:Button ID="reject" runat="server" Text="Reject" OnClick="reject_Click" CssClass="btn btn-danger px-5 py-1 fs-4" />
+                        <asp:Button ID="pending" runat="server" Text="Pending" OnClick="pending_Click" CssClass="btn btn-warning px-5 py-1 fs-4" />
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-4">
-                            <asp:Label ID="Label1" runat="server" Text="First Name" CssClass="label" ></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text="First Name" CssClass="label"></asp:Label>
                             <asp:TextBox ID="fname" ClientIDMode="Static" runat="server" CssClass="form-control" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
