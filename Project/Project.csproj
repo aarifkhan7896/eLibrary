@@ -323,6 +323,7 @@
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
     <Content Include="Scripts\jquery-1.7.js" />
     <Content Include="Scripts\jquery-1.7.min.js" />
+    <Content Include="usermanagement.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="Javascript\Script.js" />
     <Content Include="Login.aspx" />
@@ -357,6 +358,13 @@
     </Compile>
     <Compile Include="publishermanagement.aspx.designer.cs">
       <DependentUpon>publishermanagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usermanagement.aspx.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usermanagement.aspx.designer.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
