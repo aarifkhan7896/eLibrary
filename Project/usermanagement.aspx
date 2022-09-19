@@ -40,7 +40,7 @@
             <div class="col-md-6 mt-5 p-5">
                 <h4 class="text-muted fs-1 fw-bold text-center mb-5">User Details</h4>
                 <div class="input-group mb-3">
-                    <asp:TextBox ID="searchBox" runat="server" placeholder="Enter User ID" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="searchBox" runat="server" placeholder="Enter User ID" CssClass="form-control" ></asp:TextBox>
                     <asp:Button ID="Search" runat="server" CssClass="btn btn-primary px-5 py-1 fs-3" Text="Go" OnClick="Search_Click" />
                 </div>
                 <div class="mb-5 text-center">
@@ -49,34 +49,34 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-4">
-                            <asp:Label ID="Label1" runat="server" Text="First Name" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="fname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter First Name"></asp:TextBox>
+                            <asp:Label ID="Label1" runat="server" Text="First Name" CssClass="label" ></asp:Label>
+                            <asp:TextBox ID="fname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter First Name" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label3" runat="server" Text="Email" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="email" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Email"></asp:TextBox>
+                            <asp:TextBox ID="email" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Email" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label5" runat="server" Text="Contact" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="contact" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Contact Number"></asp:TextBox>
+                            <asp:TextBox ID="contact" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Contact Number" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group mb-4">
                             <asp:Label ID="Label2" runat="server" Text="Last Name" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="lname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Last Name"></asp:TextBox>
+                            <asp:TextBox ID="lname" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Last Name" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label6" runat="server" Text="Address" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="address" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Address"></asp:TextBox>
+                            <asp:TextBox ID="address" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Address" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                         <div class="form-group mb-4">
                             <asp:Label ID="Label7" runat="server" Text="Pincode" CssClass="label"></asp:Label>
-                            <asp:TextBox ID="pincode" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Pincode"></asp:TextBox>
+                            <asp:TextBox ID="pincode" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Enter Pincode" ReadOnly="true" disabled="disabled"></asp:TextBox>
                         </div>
                     </div>
                     <div class="text-center mb-4">
-                        <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete User" CssClass="btn btn-danger w-100 fs-4 py-2 px-5" />
+                        <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete User" CssClass="btn btn-danger w-100 fs-4 py-2 px-5" OnClick="deleteBtn_Click" />
                     </div>
                 </div>
             </div>
