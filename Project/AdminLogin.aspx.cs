@@ -38,7 +38,7 @@ namespace Project
                         Session["role"] = "admin";
                         Session["name"] = "Admin";
                     }
-                    Response.Redirect("~/UserProfile.aspx");
+                    Response.Redirect("~/usermanagement.aspx");
                 }
                 else
                 {

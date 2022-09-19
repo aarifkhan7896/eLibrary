@@ -24,18 +24,29 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-muted active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-muted" aria-current="page" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-muted" aria-current="page" href="#">Contact</a>
+                            </li>
+                        </ul>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" aria-current="page" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" aria-current="page" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
                                 <asp:LinkButton CssClass="nav-link text-light" ID="WelcomeUser" ClientIDMode="Static" runat="server">Hi</asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton CssClass="nav-link text-light" ID="User" ClientIDMode="Static" runat="server" OnClick="User_Click">User</asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton CssClass="nav-link text-light" ID="Author" ClientIDMode="Static" runat="server" OnClick="Author_Click">Author</asp:LinkButton>
+                            </li>
+                            <li class="nav-item">
+                                <asp:LinkButton CssClass="nav-link text-light" ID="Publisher" ClientIDMode="Static" runat="server" OnClick="Publisher_Click">Publisher</asp:LinkButton>
                             </li>
                             <li class="nav-item">
                                 <asp:LinkButton CssClass="nav-link text-light" ID="LogoutBtn" ClientIDMode="Static" runat="server" OnClick="LogoutBtn_Click">Logout</asp:LinkButton>
@@ -52,7 +63,7 @@
             <p class="mb-0 fw-bold">&copy; Copyright 2022-2023</p>
         </footer>
     </form>
-    
+
     <script src="Javascript/Script.js"></script>
 </body>
 </html>
