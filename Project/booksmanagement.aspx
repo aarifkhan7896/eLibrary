@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="booksmanagement.aspx.cs" Inherits="Project.booksmanagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+    </script>
     <style>
         span, #language, #authorname, #publishername, #date, #genre {
             font-size: 1.5rem;
@@ -118,7 +123,27 @@
                     <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete" CssClass="btn btn-danger px-5 py-1 fs-3" />
                 </div>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="mt-5">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectConnectionString %>" SelectCommand="SELECT * FROM [books]"></asp:SqlDataSource>
+                    <asp:GridView ID="GridView1" CssClass="table table-striped cell-border" runat="server" AutoGenerateColumns="False" DataKeyNames="book_id" DataSourceID="SqlDataSource1">
+                        <Columns>
+                            <asp:BoundField DataField="book_id" HeaderText="book_id" ReadOnly="True" SortExpression="book_id" />
+                            <asp:BoundField DataField="book_name" HeaderText="book_name" SortExpression="book_name" />
+                            <asp:BoundField DataField="genre" HeaderText="genre" SortExpression="genre" />
+                            <asp:BoundField DataField="author_name" HeaderText="author_name" SortExpression="author_name" />
+                            <asp:BoundField DataField="publisher_name" HeaderText="publisher_name" SortExpression="publisher_name" />
+                            <asp:BoundField DataField="publish_date" HeaderText="publish_date" SortExpression="publish_date" />
+                            <asp:BoundField DataField="language" HeaderText="language" SortExpression="language" />
+                            <asp:BoundField DataField="edition" HeaderText="edition" SortExpression="edition" />
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
+                            <asp:BoundField DataField="total_stock" HeaderText="total_stock" SortExpression="total_stock" />
+                            <asp:BoundField DataField="available_stock" HeaderText="available_stock" SortExpression="available_stock" />
+                            <asp:BoundField DataField="cost" HeaderText="cost" SortExpression="cost" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
