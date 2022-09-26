@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="mb-3 d-flex justify-content-evenly">
-                    <asp:Button ID="addBtn" ClientIDMode="Static" runat="server" Text="Add" CssClass="btn btn-success px-5 py-1 fs-3" />
+                    <asp:Button ID="addBtn" ClientIDMode="Static" runat="server" Text="Add" CssClass="btn btn-success px-5 py-1 fs-3" OnClick="addBtn_Click" />
                     <asp:Button ID="updateBtn" ClientIDMode="Static" runat="server" Text="Update" CssClass="btn btn-warning px-5 py-1 fs-3" />
                     <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete" CssClass="btn btn-danger px-5 py-1 fs-3" />
                 </div>
@@ -128,18 +128,13 @@
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectConnectionString %>" SelectCommand="SELECT * FROM [books]"></asp:SqlDataSource>
                     <asp:GridView ID="GridView1" CssClass="table table-striped cell-border" runat="server" AutoGenerateColumns="False" DataKeyNames="book_id" DataSourceID="SqlDataSource1">
                         <Columns>
-                            <asp:BoundField DataField="book_id" HeaderText="book_id" ReadOnly="True" SortExpression="book_id" />
-                            <asp:BoundField DataField="book_name" HeaderText="book_name" SortExpression="book_name" />
-                            <asp:BoundField DataField="genre" HeaderText="genre" SortExpression="genre" />
-                            <asp:BoundField DataField="author_name" HeaderText="author_name" SortExpression="author_name" />
-                            <asp:BoundField DataField="publisher_name" HeaderText="publisher_name" SortExpression="publisher_name" />
-                            <asp:BoundField DataField="publish_date" HeaderText="publish_date" SortExpression="publish_date" />
-                            <asp:BoundField DataField="language" HeaderText="language" SortExpression="language" />
-                            <asp:BoundField DataField="edition" HeaderText="edition" SortExpression="edition" />
-                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
-                            <asp:BoundField DataField="total_stock" HeaderText="total_stock" SortExpression="total_stock" />
-                            <asp:BoundField DataField="available_stock" HeaderText="available_stock" SortExpression="available_stock" />
-                            <asp:BoundField DataField="cost" HeaderText="cost" SortExpression="cost" />
+                            <asp:BoundField DataField="book_id" HeaderText="Id" ReadOnly="True" SortExpression="book_id" />
+                            <asp:BoundField DataField="book_name" HeaderText="Name" SortExpression="book_name" />
+                            <asp:BoundField DataField="author_name" HeaderText="Author" SortExpression="author_name" />
+                            <asp:BoundField DataField="edition" HeaderText="Edition" SortExpression="edition" />
+                            <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
+                            <asp:BoundField DataField="total_stock" HeaderText="Total" SortExpression="total_stock" />
+                            <asp:BoundField DataField="available_stock" HeaderText="Available" SortExpression="available_stock" />
                         </Columns>
                     </asp:GridView>
                 </div>
