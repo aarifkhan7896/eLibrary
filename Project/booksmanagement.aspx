@@ -43,7 +43,7 @@
                             <asp:Label ID="Label1" runat="server" Text="Book ID"></asp:Label>
                             <div class="input-group">
                                 <asp:TextBox ID="bookId" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:Button ID="searchBtn" ClientIDMode="Static" runat="server" Text="Go" CssClass="btn btn-primary px-5 py-1 fs-3" />
+                                <asp:Button ID="searchBtn" ClientIDMode="Static" runat="server" Text="Go" CssClass="btn btn-primary px-5 py-1 fs-3" OnClick="searchBtn_Click" />
                             </div>
                         </div>
                         <div class="mb-3">
@@ -105,22 +105,22 @@
                         </div>
                         <div class="mb-3">
                             <asp:Label ID="Label10" runat="server" Text="Total Stock"></asp:Label>
-                            <asp:TextBox ID="totalStock" ClientIDMode="Static" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="totalStock" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                             <asp:Label ID="Label11" runat="server" Text="Available Stock"></asp:Label>
-                            <asp:TextBox ID="availableStock" ClientIDMode="Static" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="availableStock" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="mb-3">
                             <asp:Label ID="Label12" runat="server" Text="Book Cost"></asp:Label>
-                            <asp:TextBox ID="bookCost" ClientIDMode="Static" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="bookCost" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3 d-flex justify-content-evenly">
                     <asp:Button ID="addBtn" ClientIDMode="Static" runat="server" Text="Add" CssClass="btn btn-success px-5 py-1 fs-3" OnClick="addBtn_Click" />
-                    <asp:Button ID="updateBtn" ClientIDMode="Static" runat="server" Text="Update" CssClass="btn btn-warning px-5 py-1 fs-3" />
-                    <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete" CssClass="btn btn-danger px-5 py-1 fs-3" />
+                    <asp:Button ID="updateBtn" ClientIDMode="Static" runat="server" Text="Update" CssClass="btn btn-warning px-5 py-1 fs-3" OnClick="updateBtn_Click" />
+                    <asp:Button ID="deleteBtn" ClientIDMode="Static" runat="server" Text="Delete" CssClass="btn btn-danger px-5 py-1 fs-3" OnClick="deleteBtn_Click" />
                 </div>
             </div>
             <div class="col-md-6">
